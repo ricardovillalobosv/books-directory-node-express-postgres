@@ -1,0 +1,97 @@
+const BooksServices = require("./book.service");
+
+exports.Books = (req, res) => {
+  BooksServices.Books()
+    .then((books) => {
+      res.json({
+        success: true,
+        data: books,
+      });
+    })
+    .catch((error) => {
+      res.json({
+        success: false,
+        message: error,
+      });
+    });
+};
+
+exports.Book = (req, res) => {
+  const id = req.params.id;
+  BooksServices.Book(id)
+    .then((book) => {
+      res.json({
+        success: true,
+        data: book,
+      });
+    })
+    .catch((error) => {
+      res.status(404).json({
+        success: false,
+        error: error.name,
+        message: "Book not found",
+      });
+    });
+};
+
+exports.CreateBook = (req, res) => {
+  const author = req.body.author;
+  const title = req.body.title;
+  const description = req.body.description;
+
+  BooksServices.CreateBook(author, title, description)
+    .then(() => {
+      res.json({
+        success: true,
+        message: "Successfully created book",
+      });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        success: false,
+        error,
+        message: "Unsuccessfully created book",
+      });
+    });
+};
+
+exports.UpdateBook = (req, res) => {
+  const idBook = req.body.idBook;
+  const author = req.body.author;
+  const title = req.body.title;
+  const description = req.body.description;
+
+  BooksServices.UpdateBook(idBook, author, title, description)
+    .then(() => {
+      res.json({
+        success: true,
+        message: "Successfully updated book",
+      });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        success: false,
+        error,
+        message: "Unsuccessfully updated book",
+      });
+    });
+};
+
+exports.DeleteBook = (req, res) => {
+  const id = req.body.id;
+
+  BooksServices.DeleteBook(id)
+    .then(() => {
+      res.json({
+        success: true,
+        message: "Successfully deleted book",
+      });
+    })
+    .catch((error) => {
+      res.status(500).json({
+        success: false,
+        error,
+        message: "Unsuccessfully deleted book",
+      });
+    });
+};

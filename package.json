@@ -1,0 +1,17 @@
+{
+  "name": "books-directory-node-express-postgres",
+  "version": "1.0.0",
+  "description": "Basic project created using Node.js, Express.js and PostgreSQl; simple REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ricardo Villalobos Vargas (ricardo_villalobosv@hotmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg-promise": "^10.5.8"
+  }
+}
