@@ -4,6 +4,7 @@
   "description": "Basic project created using Node.js, Express.js and PostgreSQl; simple REST API",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ricardo Villalobos Vargas (ricardo_villalobosv@hotmail.com)",
