@@ -10,6 +10,12 @@ exports.Book = (id) => {
   return DATABASE.one(query, [id]);
 };
 
+exports.GetLatestBook = () => {
+  const query =
+    "SELECT * FROM book WHERE id_book =(select max(id_book) from book)";
+  return DATABASE.any(query);
+};
+
 exports.CreateBook = (author, title, description) => {
   return DATABASE.func("create_book", [author, title, description]);
 };

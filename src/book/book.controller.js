@@ -34,6 +34,23 @@ exports.Book = (req, res) => {
     });
 };
 
+exports.GetLatestBook = (req, res) => {
+  BooksServices.GetLatestBook()
+    .then((book) => {
+      res.json({
+        success: true,
+        data: book,
+      });
+    })
+    .catch((error) => {
+      res.status(404).json({
+        success: false,
+        error: error.name,
+        message: "Book not found",
+      });
+    });
+};
+
 exports.CreateBook = (req, res) => {
   const author = req.body.author;
   const title = req.body.title;
