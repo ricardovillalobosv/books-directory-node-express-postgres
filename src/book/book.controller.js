@@ -96,9 +96,9 @@ exports.UpdateBook = (req, res) => {
 };
 
 exports.DeleteBook = (req, res) => {
-  const id = req.body.id;
+  const idBook = req.body.idBook;
 
-  BooksServices.DeleteBook(id)
+  BooksServices.DeleteBook(idBook)
     .then(() => {
       res.json({
         success: true,
