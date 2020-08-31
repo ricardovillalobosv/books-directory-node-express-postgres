@@ -1,8 +1,9 @@
 const DATABASE = require("../database");
 
-exports.Books = () => {
-  const query = "SELECT * FROM book";
-  return DATABASE.any(query);
+exports.Books = (limit) => {
+  if (limit === undefined || limit === "") limit = 2;
+  const query = "SELECT * FROM book limit $1";
+  return DATABASE.any(query, [limit]);
 };
 
 exports.Book = (id) => {

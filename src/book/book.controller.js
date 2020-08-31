@@ -1,7 +1,8 @@
 const BooksServices = require("./book.service");
 
 exports.Books = (req, res) => {
-  BooksServices.Books()
+  let limit = req.query.limit;
+  BooksServices.Books(limit)
     .then((books) => {
       res.json({
         success: true,
