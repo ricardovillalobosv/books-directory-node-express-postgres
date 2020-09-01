@@ -18,8 +18,8 @@ exports.Books = (req, res) => {
 };
 
 exports.Book = (req, res) => {
-  const id = req.params.id;
-  BooksServices.Book(id)
+  const idBook = req.params.idBook;
+  BooksServices.Book(idBook)
     .then((book) => {
       res.json({
         success: true,
@@ -96,7 +96,7 @@ exports.UpdateBook = (req, res) => {
 };
 
 exports.DeleteBook = (req, res) => {
-  const idBook = req.body.idBook;
+  const idBook = req.params.idBook;
 
   BooksServices.DeleteBook(idBook)
     .then(() => {
