@@ -12,7 +12,8 @@ exports.Book = (id) => {
 };
 
 exports.GetLatestBook = () => {
-  const query = "SELECT * FROM book";
+  const query =
+    "SELECT * FROM book WHERE id_book = (select max(id_book) from book);";
   return DATABASE.one(query);
 };
 
