@@ -12,7 +12,7 @@ exports.Book = (id) => {
 };
 
 exports.GetLatestBook = () => {
-  const query = "SELECT * FROM book WHERE id_book = 4";
+  const query = "SELECT * FROM book WHERE id_book = (4)::numeric";
   return DATABASE.one(query);
 };
 
