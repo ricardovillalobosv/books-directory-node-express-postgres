@@ -29,7 +29,7 @@ exports.Book = (req, res) => {
     .catch((error) => {
       res.status(404).json({
         success: false,
-        error: error.name,
+        error,
         message: "Book not found",
       });
     });
@@ -46,7 +46,7 @@ exports.GetLatestBook = (req, res) => {
     .catch((error) => {
       res.status(404).json({
         success: false,
-        error: error.name,
+        error,
         message: "Book not found",
       });
     });
