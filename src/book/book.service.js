@@ -13,7 +13,7 @@ exports.Book = (id) => {
 
 exports.GetLatestBook = () => {
   const query =
-    "SELECT * FROM book WHERE id_book = (select max(id_book)::numeric from book)";
+    "SELECT * FROM book WHERE id_book = (select max(id_book)::numeric from book)::numeric;";
   return DATABASE.one(query);
 };
 
